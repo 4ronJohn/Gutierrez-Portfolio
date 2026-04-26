@@ -9,7 +9,7 @@ const contactItems = [
     ),
     label: 'Email',
     value: 'gutierrezjohn409@gmail.com',
-    href: 'mailto:gutierrezjohn409@gmail.com',
+    href: 'https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com',
     cta: 'Send Email',
   },
   {
@@ -70,7 +70,9 @@ export default function Contact() {
                 I'm ready to contribute and grow with your team.
               </p>
               <a
-                href="mailto:gutierrezjohn409@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

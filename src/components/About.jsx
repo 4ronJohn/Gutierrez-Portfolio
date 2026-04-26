@@ -68,7 +68,7 @@ export default function About() {
               {/* Contact links */}
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
-                  href="mailto:gutierrezjohn409@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
                   className="btn-primary text-sm py-2.5"
                 >
                   Get In Touch

@@ -51,7 +51,7 @@ export default function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-16 animate-fade-in animation-delay-400">
+        <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in animation-delay-400">
           <button
             onClick={() => scrollTo('#experience')}
             className="btn-primary flex items-center gap-2"
@@ -80,20 +80,6 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto animate-fade-in animation-delay-500">
-          {[
-            { value: 'CUM', sub: 'Laude', label: 'Graduate' },
-            { value: '2+', sub: 'Years', label: 'Experience' },
-            { value: '3', sub: 'Cisco', label: 'Certifications' },
-          ].map((s) => (
-            <div key={s.label} className="glass-card p-4 text-center">
-              <div className="text-2xl font-bold gradient-text">{s.value}</div>
-              <div className="text-xs text-cyan-400/80 font-medium">{s.sub}</div>
-              <div className="text-xs text-slate-500 mt-0.5">{s.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Scroll indicator */}

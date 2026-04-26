@@ -113,21 +113,21 @@ function CertificationsInline() {
   const certs = [
     {
       name: 'Introduction to Cybersecurity',
-      issuer: 'Cisco',
+      issuer: 'Cisco Networking Academy',
       year: '2023',
-      icon: '🔒',
+      image: '/badges/cisco-cybersecurity.png',
     },
     {
       name: 'Introduction to IoT',
-      issuer: 'Cisco',
+      issuer: 'Cisco Networking Academy',
       year: '2023',
-      icon: '📡',
+      image: '/badges/cisco-iot.png',
     },
     {
       name: 'Networking Basics',
-      issuer: 'Cisco',
+      issuer: 'Cisco Networking Academy',
       year: '2023',
-      icon: '🌐',
+      image: '/badges/cisco-networking-basics.png',
     },
   ]
 
@@ -136,18 +136,27 @@ function CertificationsInline() {
       <h3 className="text-lg font-semibold text-slate-300 mb-5 flex items-center gap-2">
         <span className="text-cyan-400">✦</span> Certifications & Badges
       </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {certs.map((cert) => (
           <div
             key={cert.name}
             className="glass-card p-5 flex flex-col items-center text-center hover:border-cyan-500/30 transition-all duration-300 group"
           >
-            <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-3xl mb-4 group-hover:bg-cyan-500/20 transition-colors">
-              {cert.icon}
+            <div className="w-40 h-40 mb-4 rounded-2xl overflow-hidden flex items-center justify-center bg-slate-700/30 group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={cert.image}
+                alt={cert.name}
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="text-xs font-semibold text-cyan-400 uppercase tracking-wide mb-1">{cert.issuer}</div>
             <div className="text-sm font-medium text-slate-200 leading-tight mb-2">{cert.name}</div>
-            <div className="text-xs text-slate-500 bg-slate-700/50 px-2 py-0.5 rounded-full">{cert.year}</div>
+            <div className="inline-flex items-center gap-1.5 text-xs text-slate-500 bg-slate-700/50 px-2.5 py-0.5 rounded-full">
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+              Verified · {cert.year}
+            </div>
           </div>
         ))}
       </div>

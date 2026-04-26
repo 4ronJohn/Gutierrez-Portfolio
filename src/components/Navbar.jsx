@@ -52,7 +52,9 @@ export default function Navbar() {
           ))}
           <li className="ml-2">
             <a
-              href="mailto:gutierrezjohn409@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-semibold rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 hover:border-cyan-400/40 transition-all duration-200"
             >
               Hire Me
@@ -93,7 +95,7 @@ export default function Navbar() {
           ))}
           <li className="pt-2">
             <a
-              href="mailto:gutierrezjohn409@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
               className="block w-full text-center px-4 py-3 text-sm font-semibold rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
             >
               Hire Me
