@@ -91,7 +91,7 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="animate-on-scroll mb-12">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">03 / Skills</span>
+            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">04 / Skills</span>
             <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/40 to-transparent" />
           </div>
           <h2 className="section-title">

@@ -46,7 +46,7 @@ export default function Contact() {
         <div ref={headerRef} className="animate-on-scroll text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent to-cyan-500/40 max-w-24" />
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">05 / Contact</span>
+            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">06 / Contact</span>
             <div className="flex-1 h-px bg-gradient-to-l from-transparent to-cyan-500/40 max-w-24" />
           </div>
           <h2 className="section-title text-center">
