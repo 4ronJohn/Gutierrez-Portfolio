@@ -4,7 +4,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 const projects = [
   {
     id: 'cincinnati-hotel',
-    label: 'Entrance Task · Tauga AI',
     title: 'Cincinnati Hotel AI Chatbot',
     subtitle: 'Production-ready hotel concierge system powered by RAG + OpenAI',
     description:
@@ -39,9 +38,6 @@ function ProjectCard({ project }) {
       <div className="flex flex-wrap items-center gap-2 mb-4">
         <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
           ✦ Featured Project
-        </span>
-        <span className="px-3 py-1 rounded-full text-xs font-medium bg-slate-700/60 text-slate-400 border border-slate-600/40">
-          {project.label}
         </span>
         <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500/10 text-green-400 border border-green-500/20 flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
