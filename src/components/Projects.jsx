@@ -26,6 +26,30 @@ const projects = [
       { label: 'n8n Workflows', file: '/projects/cincinnati-hotel/n8n-chat.png' },
     ],
   },
+  {
+    id: 'nova-os-v2',
+    title: 'Nova OS v2',
+    subtitle: 'Dental clinic management platform for patient records, scheduling, and sales pipelines',
+    description:
+      'Version 2 of Nova OS. V1 was built on the No Loco platform, and I created V2 to solve the slow performance of No Loco. The system allows Nova Clinic to manage patient profiles, calendars, and sales pipelines, and it is used by the clinic to access dental patient information efficiently.',
+    features: [
+      'Patient profile management for all patients',
+      'Calendar and appointment scheduling',
+      'Sales pipeline tracking',
+      'Centralized access to dental patient information',
+      'Improved performance and usability compared with the previous No Loco-based version',
+    ],
+    stack: ['React', 'Vite', 'CSS Tailwind', 'Supabase', 'Airtable', 'Lovable'],
+    liveUrl: '#',
+    githubUrl: '#',
+    screenshots: [
+      { label: 'All Consults', file: '/projects/nova-os-v2/nova-allconsults.jpg' },
+      { label: 'Consultation Outcome', file: '/projects/nova-os-v2/nova-consultationoutcome.jpg' },
+      { label: 'Consults Today', file: '/projects/nova-os-v2/nova-consults today.jpg' },
+      { label: 'Patient Profile', file: '/projects/nova-os-v2/nova-patientprofile.jpg' },
+      { label: 'Sales Pipeline', file: '/projects/nova-os-v2/nova-salespipeline.jpg' },
+    ],
+  },
 ]
 
 // Lightbox modal — renders over the full page
