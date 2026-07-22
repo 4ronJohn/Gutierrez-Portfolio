@@ -53,7 +53,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in animation-delay-400">
           <button
-            onClick={() => scrollTo('#experience')}
+            onClick={() => scrollTo('#projects')}
             className="btn-primary flex items-center gap-2"
           >
             View My Work
