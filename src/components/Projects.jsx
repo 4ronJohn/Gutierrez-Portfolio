@@ -3,30 +3,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const projects = [
   {
-    id: 'cincinnati-hotel',
-    title: 'Cincinnati Hotel AI Chatbot',
-    subtitle: 'Production-ready hotel concierge system powered by RAG + OpenAI',
-    description:
-      'A full-stack hotel information system where guests chat with an AI concierge that answers questions strictly based on an uploaded PDF knowledge base. Admins manage the knowledge base and monitor real-time usage analytics. When the AI cannot answer, it triggers an automated email workflow to hotel staff.',
-    features: [
-      'RAG-powered AI chatbot using OpenAI GPT-4.1 Mini + Supabase pgvector for accurate, document-grounded answers',
-      'PDF knowledge base management — admin uploads a PDF, n8n auto-processes it into vector embeddings',
-      'Real-time admin dashboard with session counts, topic analytics bar chart, and email request tracking',
-      'Automated email inquiry workflow via n8n that summarizes the conversation and emails hotel staff',
-      'Dual-role system: Regular User (chat) and Admin (dashboard + PDF upload)',
-    ],
-    stack: ['React 18', 'Node.js', 'Express', 'n8n Cloud', 'OpenAI GPT-4.1', 'Supabase', 'pgvector', 'Railway', 'Vite', 'Axios'],
-    liveUrl: 'https://entrance-task-cincinnati-hotel-production.up.railway.app/',
-    githubUrl: 'https://github.com/4ronJohn/Entrance-task-Cincinnati-Hotel',
-    screenshots: [
-      { label: 'Landing Page', file: '/projects/cincinnati-hotel/landing.png' },
-      { label: 'AI Chat', file: '/projects/cincinnati-hotel/chat.png' },
-      { label: 'Contact Form', file: '/projects/cincinnati-hotel/contact-form.png' },
-      { label: 'Admin Dashboard', file: '/projects/cincinnati-hotel/admin.png' },
-      { label: 'n8n Workflows', file: '/projects/cincinnati-hotel/n8n-chat.png' },
-    ],
-  },
-  {
     id: 'nova-os-v2',
     title: 'Nova OS v2',
     subtitle: 'Dental clinic management platform for patient records, scheduling, and sales pipelines',
@@ -52,6 +28,30 @@ const projects = [
       { label: 'Consults Today', file: '/projects/nova-os-v2/nova-consults today.jpg' },
       { label: 'Patient Profile', file: '/projects/nova-os-v2/nova-patientprofile.jpg' },
       { label: 'Sales Pipeline', file: '/projects/nova-os-v2/nova-salespipeline.jpg' },
+    ],
+  },
+  {
+    id: 'cincinnati-hotel',
+    title: 'Cincinnati Hotel AI Chatbot',
+    subtitle: 'Production-ready hotel concierge system powered by RAG + OpenAI',
+    description:
+      'A full-stack hotel information system where guests chat with an AI concierge that answers questions strictly based on an uploaded PDF knowledge base. Admins manage the knowledge base and monitor real-time usage analytics. When the AI cannot answer, it triggers an automated email workflow to hotel staff.',
+    features: [
+      'RAG-powered AI chatbot using OpenAI GPT-4.1 Mini + Supabase pgvector for accurate, document-grounded answers',
+      'PDF knowledge base management — admin uploads a PDF, n8n auto-processes it into vector embeddings',
+      'Real-time admin dashboard with session counts, topic analytics bar chart, and email request tracking',
+      'Automated email inquiry workflow via n8n that summarizes the conversation and emails hotel staff',
+      'Dual-role system: Regular User (chat) and Admin (dashboard + PDF upload)',
+    ],
+    stack: ['React 18', 'Node.js', 'Express', 'n8n Cloud', 'OpenAI GPT-4.1', 'Supabase', 'pgvector', 'Railway', 'Vite', 'Axios'],
+    liveUrl: 'https://entrance-task-cincinnati-hotel-production.up.railway.app/',
+    githubUrl: 'https://github.com/4ronJohn/Entrance-task-Cincinnati-Hotel',
+    screenshots: [
+      { label: 'Landing Page', file: '/projects/cincinnati-hotel/landing.png' },
+      { label: 'AI Chat', file: '/projects/cincinnati-hotel/chat.png' },
+      { label: 'Contact Form', file: '/projects/cincinnati-hotel/contact-form.png' },
+      { label: 'Admin Dashboard', file: '/projects/cincinnati-hotel/admin.png' },
+      { label: 'n8n Workflows', file: '/projects/cincinnati-hotel/n8n-chat.png' },
     ],
   },
 ]
