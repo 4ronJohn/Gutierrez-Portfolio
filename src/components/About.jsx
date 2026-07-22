@@ -21,11 +21,12 @@ export default function About() {
             <div className="md:col-span-2 flex justify-center">
               <div className="relative">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 blur-xl" />
-                <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-3xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600/50 flex items-center justify-center shadow-2xl">
-                  <div className="text-center">
-                    <div className="text-6xl font-extrabold gradient-text leading-none">AJG</div>
-                    <div className="text-slate-500 text-sm mt-2">Aron John Gutierrez</div>
-                  </div>
+                <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-3xl overflow-hidden border border-slate-600/50 shadow-2xl">
+                  <img
+                    src="/profile.jpg"
+                    alt="Aron John Gutierrez"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {/* Floating badge */}
                 <div className="absolute -bottom-4 -right-4 bg-slate-800 border border-slate-700/60 rounded-xl px-3 py-2 shadow-lg">
