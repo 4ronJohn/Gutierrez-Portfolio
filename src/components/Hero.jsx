@@ -50,7 +50,7 @@ export default function Hero() {
           React web development, and automating workflows with modern tools.
         </p>
 
-        {/* CTAs */}
+        {/* CTAs  */}
         <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in animation-delay-400">
           <button
             onClick={() => scrollTo('#projects')}
