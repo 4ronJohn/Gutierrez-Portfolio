@@ -23,7 +23,7 @@ export default function About() {
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 blur-xl" />
                 <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-3xl overflow-hidden border border-slate-600/50 shadow-2xl">
                   <img
-                    src="/profile.jpg"
+                    src="/projects/profile.jpg"
                     alt="Aron John Gutierrez"
                     className="w-full h-full object-cover"
                   />
