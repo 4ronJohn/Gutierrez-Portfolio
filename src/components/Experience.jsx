@@ -33,16 +33,16 @@ const experiences = [
 
 const colorMap = {
   cyan: {
-    dot: 'bg-cyan-400',
-    ring: 'ring-cyan-500/30',
-    badge: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
-    tag: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20',
+    dot: 'bg-violet-500',
+    ring: 'ring-violet-200',
+    badge: 'bg-violet-50 text-violet-700 border-violet-200',
+    tag: 'bg-violet-50 text-violet-700 border-violet-200',
   },
   indigo: {
-    dot: 'bg-indigo-400',
-    ring: 'ring-indigo-500/30',
-    badge: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
-    tag: 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20',
+    dot: 'bg-fuchsia-500',
+    ring: 'ring-fuchsia-200',
+    badge: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
+    tag: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200',
   },
 }
 
@@ -55,11 +55,11 @@ function ExperienceCard({ exp, index }) {
       {/* Timeline dot */}
       <div className={`absolute left-4 top-6 w-4 h-4 rounded-full ${c.dot} ring-4 ${c.ring} z-10 -translate-x-1/2`} />
 
-      <div className="glass-card p-6 hover:border-slate-600/80 transition-all duration-300 hover:shadow-lg hover:shadow-black/20">
+      <div className="glass-card p-6 hover:border-violet-200 transition-all duration-300 hover:shadow-[0_18px_40px_rgba(109,40,217,0.08)]">
         <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
           <div>
-            <h3 className="text-xl font-bold text-slate-100">{exp.role}</h3>
-            <p className="text-slate-400 text-sm mt-0.5">{exp.company}</p>
+            <h3 className="text-xl font-bold text-slate-900">{exp.role}</h3>
+            <p className="text-slate-600 text-sm mt-0.5">{exp.company}</p>
           </div>
           <div className="flex flex-col items-end gap-2">
             <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${c.badge}`}>
@@ -76,7 +76,7 @@ function ExperienceCard({ exp, index }) {
 
         <ul className="space-y-2.5 mb-5">
           {exp.bullets.map((b, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-slate-400 text-sm leading-relaxed">
+            <li key={i} className="flex items-start gap-2.5 text-slate-600 text-sm leading-relaxed">
               <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${c.dot} flex-shrink-0`} />
               {b}
             </li>
@@ -99,12 +99,12 @@ export default function Experience() {
   const headerRef = useScrollAnimation()
 
   return (
-    <section id="experience" className="py-24 px-6 bg-slate-900/30">
+    <section id="experience" className="py-24 px-6 bg-white/70">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="animate-on-scroll mb-12">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">02 / Experience</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/40 to-transparent" />
+            <span className="text-violet-600 text-sm font-semibold tracking-widest uppercase">02 / Experience</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-violet-400/40 to-transparent" />
           </div>
           <h2 className="section-title">
             Work <span className="gradient-text">Experience</span>

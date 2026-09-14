@@ -37,7 +37,7 @@ const projects = [
     description:
       'A full-stack hotel information system where guests chat with an AI concierge that answers questions strictly based on an uploaded PDF knowledge base. Admins manage the knowledge base and monitor real-time usage analytics. When the AI cannot answer, it triggers an automated email workflow to hotel staff.',
     features: [
-      'RAG-powered AI chatbot using OpenAI GPT-4.1 Mini + Supabase pgvector for accurate, document-grounded answers',
+      'RAG-powered AI chatbot using Google Gemini + Supabase pgvector for accurate, document-grounded answers',
       'PDF knowledge base management — admin uploads a PDF, n8n auto-processes it into vector embeddings',
       'Real-time admin dashboard with session counts, topic analytics bar chart, and email request tracking',
       'Automated email inquiry workflow via n8n that summarizes the conversation and emails hotel staff',
@@ -51,7 +51,9 @@ const projects = [
       { label: 'AI Chat', file: '/projects/cincinnati-hotel/chat.png' },
       { label: 'Contact Form', file: '/projects/cincinnati-hotel/contact-form.png' },
       { label: 'Admin Dashboard', file: '/projects/cincinnati-hotel/admin.png' },
-      { label: 'n8n Workflows', file: '/projects/cincinnati-hotel/n8n-chat.png' },
+      { label: 'Chat Workflow', file: '/projects/cincinnati-hotel/n8n-chat.png' },
+      { label: 'PDF Workflow', file: '/projects/cincinnati-hotel/n8n-pdf.png' },
+      { label: 'Email Workflow', file: '/projects/cincinnati-hotel/n8n-email.png' },
     ],
   },
 ]
@@ -128,20 +130,20 @@ function ProjectCard({ project }) {
       <div ref={ref} className="animate-on-scroll">
         {/* Header badges */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-violet-50 text-violet-700 border border-violet-200">
             ✦ Featured Project
           </span>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500/10 text-green-400 border border-green-500/20 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             Live
           </span>
         </div>
 
-        <div className="glass-card overflow-hidden hover:border-slate-600/70 transition-all duration-300">
+        <div className="glass-card overflow-hidden hover:border-violet-200 transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-0">
 
             {/* Screenshot Panel */}
-            <div className="relative bg-slate-900/60 border-b lg:border-b-0 lg:border-r border-slate-700/50">
+            <div className="relative bg-violet-50/60 border-b lg:border-b-0 lg:border-r border-violet-100">
               {/* Tab bar */}
               <div className="flex items-center gap-1 px-3 pt-3 pb-0 overflow-x-auto scrollbar-none">
                 {project.screenshots.map((shot, i) => (
@@ -150,8 +152,8 @@ function ProjectCard({ project }) {
                     onClick={() => setActiveShot(i)}
                     className={`flex-shrink-0 px-3 py-1.5 rounded-t-lg text-xs font-medium transition-all duration-200 ${
                       activeShot === i
-                        ? 'bg-slate-700/80 text-cyan-300 border border-b-0 border-slate-600/60'
-                        : 'text-slate-500 hover:text-slate-300'
+                        ? 'bg-white text-violet-700 border border-b-0 border-violet-200'
+                        : 'text-slate-500 hover:text-violet-700'
                     }`}
                   >
                     {shot.label}
@@ -161,7 +163,7 @@ function ProjectCard({ project }) {
 
               {/* Screenshot with hover + click to enlarge */}
               <div
-                className="group relative mx-3 mb-3 rounded-xl overflow-hidden bg-slate-800/60 border border-slate-700/40 cursor-zoom-in"
+                className="group relative mx-3 mb-3 rounded-xl overflow-hidden bg-white border border-violet-100 cursor-zoom-in"
                 style={{ aspectRatio: '16/10' }}
                 onClick={() => openLightbox(currentShot.file, `${project.title} — ${currentShot.label}`)}
               >
@@ -177,13 +179,13 @@ function ProjectCard({ project }) {
 
                 {/* Fallback placeholder */}
                 <div
-                  className="absolute inset-0 items-center justify-center flex-col gap-3 bg-slate-800/80"
+                  className="absolute inset-0 items-center justify-center flex-col gap-3 bg-white/90"
                   style={{ display: 'none' }}
                 >
                   <div className="text-4xl">🖼️</div>
                   <p className="text-slate-500 text-sm text-center px-4">
                     Save screenshot as<br />
-                    <code className="text-cyan-400 text-xs">public{currentShot.file}</code>
+                    <code className="text-violet-700 text-xs">public{currentShot.file}</code>
                   </p>
                 </div>
 
@@ -206,24 +208,24 @@ function ProjectCard({ project }) {
             {/* Details Panel */}
             <div className="p-6 lg:p-8 flex flex-col">
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-slate-100 mb-1 leading-tight">
+                <h3 className="text-2xl font-bold text-slate-900 mb-1 leading-tight">
                   {project.title}
                 </h3>
-                <p className="text-cyan-400 text-sm font-medium mb-4">{project.subtitle}</p>
+                <p className="text-violet-700 text-sm font-medium mb-4">{project.subtitle}</p>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   {project.description}
                 </p>
 
                 {/* Key Features */}
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">
+                  <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
                     Key Features
                   </h4>
                   <ul className="space-y-2">
                     {project.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-slate-400">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
+                      <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
                         <span className="leading-relaxed">{f}</span>
                       </li>
                     ))}
@@ -232,7 +234,7 @@ function ProjectCard({ project }) {
 
                 {/* Tech Stack */}
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">
+                  <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
                     Tech Stack
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -244,7 +246,7 @@ function ProjectCard({ project }) {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-3 pt-2 border-t border-slate-700/50">
+              <div className="flex flex-wrap gap-3 pt-2 border-t border-violet-100">
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -280,12 +282,12 @@ export default function Projects() {
   const headerRef = useScrollAnimation()
 
   return (
-    <section id="projects" className="py-24 px-6 bg-slate-900/30">
+    <section id="projects" className="py-24 px-6 bg-white/70">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="animate-on-scroll mb-12">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">03 / Projects</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/40 to-transparent" />
+            <span className="text-violet-600 text-sm font-semibold tracking-widest uppercase">03 / Projects</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-violet-400/40 to-transparent" />
           </div>
           <h2 className="section-title">
             Featured <span className="gradient-text">Projects</span>

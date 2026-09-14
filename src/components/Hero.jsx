@@ -8,14 +8,14 @@ export default function Hero() {
     >
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-400" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-400" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-3xl" />
         {/* Grid overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: `linear-gradient(rgba(6,182,212,1) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(124,58,237,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.9) 1px, transparent 1px)`,
             backgroundSize: '60px 60px',
           }}
         />
@@ -23,8 +23,8 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-8 animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-medium mb-8 animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
           Available for opportunities
         </div>
 
@@ -32,20 +32,20 @@ export default function Hero() {
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 animate-fade-in animation-delay-100">
           <span className="gradient-text">Aron John</span>
           <br />
-          <span className="text-slate-100">Gutierrez</span>
+          <span className="text-slate-900">Gutierrez</span>
         </h1>
 
         {/* Role */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-6 animate-fade-in animation-delay-200">
-          <span className="px-3 py-1 rounded-full bg-slate-800/80 text-slate-300 text-sm border border-slate-700/60">IT Professional</span>
-          <span className="text-slate-600">·</span>
-          <span className="px-3 py-1 rounded-full bg-slate-800/80 text-slate-300 text-sm border border-slate-700/60">Web Developer</span>
-          <span className="text-slate-600">·</span>
-          <span className="px-3 py-1 rounded-full bg-slate-800/80 text-slate-300 text-sm border border-slate-700/60">Workflow Automation</span>
+          <span className="px-3 py-1 rounded-full bg-white/90 text-slate-700 text-sm border border-violet-100 shadow-sm">IT Professional</span>
+          <span className="text-slate-400">·</span>
+          <span className="px-3 py-1 rounded-full bg-white/90 text-slate-700 text-sm border border-violet-100 shadow-sm">Web Developer</span>
+          <span className="text-slate-400">·</span>
+          <span className="px-3 py-1 rounded-full bg-white/90 text-slate-700 text-sm border border-violet-100 shadow-sm">Workflow Automation</span>
         </div>
 
         {/* Tagline */}
-        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in animation-delay-300">
+        <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in animation-delay-300">
           BS Information Technology graduate with hands-on experience in IT support,
           React web development, and automating workflows with modern tools.
         </p>
@@ -84,8 +84,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-slate-600 flex items-start justify-center pt-2">
-          <div className="w-1 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+        <div className="w-6 h-10 rounded-full border-2 border-violet-200 flex items-start justify-center pt-2">
+          <div className="w-1 h-2.5 rounded-full bg-violet-500 animate-pulse" />
         </div>
       </div>
     </section>

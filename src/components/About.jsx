@@ -8,8 +8,8 @@ export default function About() {
       <div className="max-w-6xl mx-auto">
         <div ref={ref} className="animate-on-scroll">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">01 / About</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/40 to-transparent" />
+            <span className="text-violet-600 text-sm font-semibold tracking-widest uppercase">01 / About</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-violet-400/40 to-transparent" />
           </div>
           <h2 className="section-title">
             About <span className="gradient-text">Me</span>
@@ -20,8 +20,8 @@ export default function About() {
             {/* Avatar */}
             <div className="md:col-span-2 flex justify-center">
               <div className="relative">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 blur-xl" />
-                <div className="relative w-56 md:w-64 rounded-3xl overflow-hidden border border-slate-600/50 shadow-2xl">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-200/80 to-fuchsia-200/70 blur-xl" />
+                <div className="relative w-56 md:w-64 rounded-3xl overflow-hidden border border-violet-100 shadow-[0_20px_45px_rgba(109,40,217,0.12)] bg-white/90">
                   <img
                     src="/projects/profile.jpg"
                     alt="Aron John Gutierrez"
@@ -29,23 +29,23 @@ export default function About() {
                   />
                 </div>
                 {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 bg-slate-800 border border-slate-700/60 rounded-xl px-3 py-2 shadow-lg">
-                  <div className="text-xs text-slate-400">Based in</div>
-                  <div className="text-sm font-semibold text-slate-200">Taguig, 🇵🇭</div>
+                <div className="absolute -bottom-4 -right-4 bg-white border border-violet-100 rounded-xl px-3 py-2 shadow-lg">
+                  <div className="text-xs text-slate-500">Based in</div>
+                  <div className="text-sm font-semibold text-slate-800">Taguig, 🇵🇭</div>
                 </div>
               </div>
             </div>
 
             {/* Content */}
             <div className="md:col-span-3 space-y-5">
-              <p className="text-slate-300 text-lg leading-relaxed">
-                Hi! I'm <span className="text-cyan-300 font-semibold">Aron John</span>, an entry-level IT professional
+              <p className="text-slate-700 text-lg leading-relaxed">
+                Hi! I'm <span className="text-violet-700 font-semibold">Aron John</span>, an entry-level IT professional
                 and fresh graduate with a{' '}
-                <span className="text-cyan-300 font-semibold">Bachelor of Science in Information Technology</span>{' '}
+                <span className="text-violet-700 font-semibold">Bachelor of Science in Information Technology</span>{' '}
                 from Polytechnic University of the Philippines, graduating{' '}
-                <span className="text-cyan-300 font-semibold">Cum Laude</span>.
+                <span className="text-violet-700 font-semibold">Cum Laude</span>.
               </p>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 I have hands-on experience in IT support, web development with React and Tailwind CSS,
                 and building automated workflows using tools like Buildship, Make, and N8N. I'm passionate
                 about leveraging technology to improve system efficiency and solve real-world problems.
@@ -61,7 +61,7 @@ export default function About() {
                 ].map((item) => (
                   <div key={item.label} className="glass-card p-3">
                     <div className="text-xs text-slate-500 uppercase tracking-wide mb-0.5">{item.label}</div>
-                    <div className="text-sm text-slate-200 font-medium truncate">{item.value}</div>
+                    <div className="text-sm text-slate-800 font-medium truncate">{item.value}</div>
                   </div>
                 ))}
               </div>

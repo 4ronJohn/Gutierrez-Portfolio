@@ -68,10 +68,10 @@ const softSkills = [
 function SkillGroup({ group }) {
   const ref = useScrollAnimation()
   return (
-    <div ref={ref} className="animate-on-scroll glass-card p-6 hover:border-slate-600/60 transition-all duration-300">
+    <div ref={ref} className="animate-on-scroll glass-card p-6 hover:border-violet-200 transition-all duration-300">
       <div className="flex items-center gap-2 mb-5">
         <span className="text-2xl">{group.icon}</span>
-        <h3 className="font-semibold text-slate-200">{group.category}</h3>
+        <h3 className="font-semibold text-slate-800">{group.category}</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {group.skills.map((skill) => (
@@ -91,8 +91,8 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="animate-on-scroll mb-12">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">04 / Skills</span>
-            <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/40 to-transparent" />
+            <span className="text-violet-600 text-sm font-semibold tracking-widest uppercase">04 / Skills</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-violet-400/40 to-transparent" />
           </div>
           <h2 className="section-title">
             Technical <span className="gradient-text">Skills</span>
@@ -108,17 +108,17 @@ export default function Skills() {
 
         {/* Soft Skills */}
         <div ref={softRef} className="animate-on-scroll">
-          <h3 className="text-lg font-semibold text-slate-300 mb-5 flex items-center gap-2">
-            <span className="text-cyan-400">✦</span> Soft Skills
+          <h3 className="text-lg font-semibold text-slate-800 mb-5 flex items-center gap-2">
+            <span className="text-violet-600">✦</span> Soft Skills
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {softSkills.map((s) => (
               <div
                 key={s.label}
-                className="glass-card p-4 flex items-center gap-3 hover:border-slate-600/60 transition-all duration-200"
+                className="glass-card p-4 flex items-center gap-3 hover:border-violet-200 transition-all duration-200"
               >
                 <span className="text-xl flex-shrink-0">{s.icon}</span>
-                <span className="text-sm text-slate-300 leading-tight">{s.label}</span>
+                <span className="text-sm text-slate-700 leading-tight">{s.label}</span>
               </div>
             ))}
           </div>

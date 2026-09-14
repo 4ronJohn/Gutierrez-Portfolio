@@ -45,14 +45,14 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto">
         <div ref={headerRef} className="animate-on-scroll text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-cyan-500/40 max-w-24" />
-            <span className="text-cyan-400 text-sm font-semibold tracking-widest uppercase">06 / Contact</span>
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-cyan-500/40 max-w-24" />
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-violet-400/40 max-w-24" />
+            <span className="text-violet-600 text-sm font-semibold tracking-widest uppercase">06 / Contact</span>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-violet-400/40 max-w-24" />
           </div>
           <h2 className="section-title text-center">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-slate-400 text-base max-w-lg mx-auto">
+          <p className="text-slate-600 text-base max-w-lg mx-auto">
             I'm actively looking for new opportunities. Whether you have a question, a project,
             or just want to say hi — my inbox is open.
           </p>
@@ -61,11 +61,11 @@ export default function Contact() {
         <div ref={cardsRef} className="animate-on-scroll">
           {/* CTA Banner */}
           <div className="relative glass-card p-8 mb-8 overflow-hidden text-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-indigo-500/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-transparent to-fuchsia-50 pointer-events-none" />
             <div className="relative z-10">
               <div className="text-4xl mb-4">👋</div>
-              <h3 className="text-2xl font-bold text-slate-100 mb-2">Open to Work</h3>
-              <p className="text-slate-400 mb-6 max-w-md mx-auto">
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">Open to Work</h3>
+              <p className="text-slate-600 mb-6 max-w-md mx-auto">
                 Entry-level IT roles, web development projects, and workflow automation gigs —
                 I'm ready to contribute and grow with your team.
               </p>
@@ -91,16 +91,16 @@ export default function Contact() {
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="glass-card p-5 flex flex-col gap-3 hover:border-cyan-500/30 hover:bg-slate-800/60 transition-all duration-200 group"
+                className="glass-card p-5 flex flex-col gap-3 hover:border-violet-200 hover:bg-violet-50/50 transition-all duration-200 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500/20 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center text-violet-700 group-hover:bg-violet-200 transition-colors">
                   {item.icon}
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 uppercase tracking-wide mb-0.5">{item.label}</div>
-                  <div className="text-sm text-slate-300 font-medium break-all leading-snug">{item.value}</div>
+                  <div className="text-sm text-slate-700 font-medium break-all leading-snug">{item.value}</div>
                 </div>
-                <div className="text-xs text-cyan-400 font-medium flex items-center gap-1 mt-auto">
+                <div className="text-xs text-violet-700 font-medium flex items-center gap-1 mt-auto">
                   {item.cta}
                   <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

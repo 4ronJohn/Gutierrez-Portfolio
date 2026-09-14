@@ -2,7 +2,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-slate-800/60 py-8 px-6">
+    <footer className="border-t border-violet-100 py-8 px-6 bg-white/70">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <span className="text-lg font-bold gradient-text">AG.</span>
@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <a
             href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
-            className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all duration-200"
+            className="w-9 h-9 rounded-lg bg-white border border-violet-100 flex items-center justify-center text-slate-600 hover:text-violet-700 hover:border-violet-200 transition-all duration-200"
             aria-label="Email"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/aron-john-gutierrez-34b499273/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all duration-200"
+            className="w-9 h-9 rounded-lg bg-white border border-violet-100 flex items-center justify-center text-slate-600 hover:text-violet-700 hover:border-violet-200 transition-all duration-200"
             aria-label="LinkedIn"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

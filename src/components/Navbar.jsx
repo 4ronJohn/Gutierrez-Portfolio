@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a0f1e]/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-slate-800/60' : 'bg-transparent'
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-[0_10px_30px_rgba(109,40,217,0.08)] border-b border-violet-100' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
@@ -45,7 +45,7 @@ export default function Navbar() {
             <li key={link.label}>
               <button
                 onClick={() => handleLink(link.href)}
-                className="px-4 py-2 text-sm font-medium text-slate-400 hover:text-cyan-300 rounded-lg hover:bg-slate-800/60 transition-all duration-200"
+                className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-violet-700 rounded-lg hover:bg-violet-50 transition-all duration-200"
               >
                 {link.label}
               </button>
@@ -56,7 +56,7 @@ export default function Navbar() {
               href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-semibold rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 hover:border-cyan-400/40 transition-all duration-200"
+              className="px-4 py-2 text-sm font-semibold rounded-lg bg-violet-600 text-white border border-violet-600 hover:bg-violet-500 transition-all duration-200 shadow-[0_8px_20px_rgba(124,58,237,0.18)]"
             >
               Hire Me
             </a>
@@ -65,7 +65,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition-all"
+          className="md:hidden p-2 rounded-lg text-slate-600 hover:text-violet-700 hover:bg-violet-50 transition-all"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -80,15 +80,15 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? 'max-h-80 border-b border-slate-800/60' : 'max-h-0'
-        } bg-[#0a0f1e]/98 backdrop-blur-md`}
+          menuOpen ? 'max-h-80 border-b border-violet-100' : 'max-h-0'
+        } bg-white/90 backdrop-blur-md`}
       >
         <ul className="px-6 py-4 flex flex-col gap-1">
           {navLinks.map((link) => (
             <li key={link.label}>
               <button
                 onClick={() => handleLink(link.href)}
-                className="w-full text-left px-4 py-3 text-sm font-medium text-slate-400 hover:text-cyan-300 rounded-lg hover:bg-slate-800/60 transition-all"
+                className="w-full text-left px-4 py-3 text-sm font-medium text-slate-600 hover:text-violet-700 rounded-lg hover:bg-violet-50 transition-all"
               >
                 {link.label}
               </button>
@@ -97,7 +97,7 @@ export default function Navbar() {
           <li className="pt-2">
             <a
               href="https://mail.google.com/mail/?view=cm&to=gutierrezjohn409@gmail.com"
-              className="block w-full text-center px-4 py-3 text-sm font-semibold rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+              className="block w-full text-center px-4 py-3 text-sm font-semibold rounded-lg bg-violet-600 text-white border border-violet-600"
             >
               Hire Me
             </a>
