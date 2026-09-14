@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const education = [
@@ -157,7 +158,7 @@ function CertificationsInline() {
 
   return (
     <div ref={ref} className="animate-on-scroll">
-      {lightbox && (
+      {lightbox && createPortal((
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10"
           onClick={() => setLightbox(null)}
@@ -187,7 +188,7 @@ function CertificationsInline() {
             Click outside or press Esc to close
           </p>
         </div>
-      )}
+      ), document.body)}
 
       <h3 className="text-lg font-semibold text-slate-800 mb-5 flex items-center gap-2">
         <span className="text-violet-600">✦</span> Certifications & Badges

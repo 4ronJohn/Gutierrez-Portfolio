@@ -44,7 +44,7 @@ const projects = [
       'Dual-role system: Regular User (chat) and Admin (dashboard + PDF upload)',
     ],
     stack: ['React 18', 'Node.js', 'Express', 'n8n Cloud', 'OpenAI GPT-4.1', 'Supabase', 'pgvector', 'Railway', 'Vite', 'Axios'],
-    liveUrl: 'https://entrance-task-cincinnati-hotel-production.up.railway.app/',
+    liveUrl: 'https://entrance-task-cincinnati-hotel.vercel.app/',
     githubUrl: 'https://github.com/4ronJohn/Entrance-task-Cincinnati-Hotel',
     screenshots: [
       { label: 'Landing Page', file: '/projects/cincinnati-hotel/landing.png' },
