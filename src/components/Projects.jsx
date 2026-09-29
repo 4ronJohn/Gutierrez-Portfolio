@@ -43,7 +43,7 @@ const projects = [
       'Automated email inquiry workflow via n8n that summarizes the conversation and emails hotel staff',
       'Dual-role system: Regular User (chat) and Admin (dashboard + PDF upload)',
     ],
-    stack: ['React 18', 'Node.js', 'Express', 'n8n Cloud', 'OpenAI GPT-4.1', 'Supabase', 'pgvector', 'Railway', 'Vite', 'Axios'],
+    stack: ['React', 'Node.js', 'n8n Cloud', 'Gemini AI', 'Supabase', 'Vercel', 'Vite'],
     liveUrl: 'https://entrance-task-cincinnati-hotel.vercel.app/',
     githubUrl: 'https://github.com/4ronJohn/Entrance-task-Cincinnati-Hotel',
     screenshots: [
