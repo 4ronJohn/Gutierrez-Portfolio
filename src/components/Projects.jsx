@@ -56,19 +56,79 @@ const projects = [
       { label: 'Email Workflow', file: '/projects/cincinnati-hotel/n8n-email.png' },
     ],
   },
+  {
+    id: 'reciepts-tracker',
+    title: 'Email Label Tracker & Attachment Organizer',
+    subtitle: 'Automate email tracking and organize attachments with Gmail, Google Sheets, and Google Drive.',
+    description:
+      'An n8n workflow that automatically tracks emails under selected Gmail labels, logs email details in Google Sheets, and organizes attachments in Google Drive by label, date, and sender.',
+    features: [
+      'Checks selected Gmail labels every 10 minutes and records sender details, subject, message, and received date.',
+      'Automatically adds or updates email records using the email ID to prevent duplicate rows.',
+      'Creates folders by email label and date, with subfolders for each sender.',
+      'Checks existing files before uploading attachments to avoid duplicate uploads.f',
+      'Downloads email attachments and uploads them to the appropriate Google Drive folders.',
+    ],
+    stack: ['n8n', 'Gmail API', 'Google Sheets', 'Google Drive', 'JavaScript'],
+    liveUrl: '#',
+    githubUrl: '#',
+    screenshots: [
+      { label: 'Whole Workflow', file: '/projects/reciepts-tracker/0.png' },
+      { label: 'Workflow Overview', file: '/projects/reciepts-tracker/1.png' },
+      { label: 'Gmail Trigger', file: '/projects/reciepts-tracker/2.png' },
+      { label: 'Google Sheets Node', file: '/projects/reciepts-tracker/3.png' },
+      { label: 'Google Drive Node', file: '/projects/reciepts-tracker/4.png' },
+    ],
+  },
 ]
 
+function GalleryArrow({ direction, onClick, fullscreen = false }) {
+  const isPrevious = direction === 'previous'
+
+  return (
+    <button
+      type="button"
+      onClick={(event) => {
+        event.stopPropagation()
+        onClick()
+      }}
+      aria-label={isPrevious ? 'Previous image' : 'Next image'}
+      className={`absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center rounded-full transition-colors ${
+        fullscreen
+          ? 'w-11 h-11 bg-slate-800/90 border border-slate-600/60 text-slate-300 hover:text-white hover:bg-slate-700'
+          : 'w-9 h-9 bg-black/60 text-white hover:bg-black/80'
+      } ${isPrevious ? 'left-3' : 'right-3'}`}
+    >
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d={isPrevious ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7'}
+        />
+      </svg>
+    </button>
+  )
+}
+
 // Lightbox modal — renders over the full page
-function Lightbox({ src, alt, onClose }) {
+function Lightbox({ shots, activeShot, projectTitle, onPrevious, onNext, onClose }) {
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') onPrevious()
+      if (e.key === 'ArrowRight') onNext()
+    }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [onClose])
+  }, [onClose, onNext, onPrevious])
+
+  const currentShot = shots[activeShot]
+  const alt = `${projectTitle} — ${currentShot.label}`
 
   return (
     <div
@@ -93,16 +153,23 @@ function Lightbox({ src, alt, onClose }) {
 
       {/* Image — stop propagation so clicking the image doesn't close */}
       <img
-        src={src}
+        src={currentShot.file}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
         className="max-w-full max-h-full rounded-xl shadow-2xl object-contain border border-slate-700/50"
         style={{ maxHeight: 'calc(100vh - 6rem)' }}
       />
 
+      {shots.length > 1 && (
+        <>
+          <GalleryArrow direction="previous" onClick={onPrevious} fullscreen />
+          <GalleryArrow direction="next" onClick={onNext} fullscreen />
+        </>
+      )}
+
       {/* Hint */}
       <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-slate-500 text-xs">
-        Click outside or press Esc to close
+        Use arrow keys to browse · Click outside or press Esc to close
       </p>
     </div>
   )
@@ -110,35 +177,35 @@ function Lightbox({ src, alt, onClose }) {
 
 function ProjectCard({ project }) {
   const [activeShot, setActiveShot] = useState(0)
-  const [lightbox, setLightbox] = useState(null) // { src, alt } or null
+  const [lightbox, setLightbox] = useState(false)
   const ref = useScrollAnimation()
 
-  const openLightbox = useCallback((src, alt) => {
-    setLightbox({ src, alt })
-  }, [])
-
+  const openLightbox = useCallback(() => setLightbox(true), [])
   const closeLightbox = useCallback(() => setLightbox(null), [])
+  const navigateShot = useCallback((direction) => {
+    setActiveShot((current) =>
+      (current + direction + project.screenshots.length) % project.screenshots.length
+    )
+  }, [project.screenshots.length])
+  const previousShot = useCallback(() => navigateShot(-1), [navigateShot])
+  const nextShot = useCallback(() => navigateShot(1), [navigateShot])
 
   const currentShot = project.screenshots[activeShot]
 
   return (
     <>
       {lightbox && (
-        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />
+        <Lightbox
+          shots={project.screenshots}
+          activeShot={activeShot}
+          projectTitle={project.title}
+          onPrevious={previousShot}
+          onNext={nextShot}
+          onClose={closeLightbox}
+        />
       )}
 
       <div ref={ref} className="animate-on-scroll">
-        {/* Header badges */}
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-violet-50 text-violet-700 border border-violet-200">
-            ✦ Featured Project
-          </span>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Live
-          </span>
-        </div>
-
         <div className="glass-card overflow-hidden hover:border-violet-200 transition-all duration-300">
           <div className="grid lg:grid-cols-2 gap-0">
 
@@ -165,7 +232,7 @@ function ProjectCard({ project }) {
               <div
                 className="group relative mx-3 mb-3 rounded-xl overflow-hidden bg-white border border-violet-100 cursor-zoom-in"
                 style={{ aspectRatio: '16/10' }}
-                onClick={() => openLightbox(currentShot.file, `${project.title} — ${currentShot.label}`)}
+                onClick={openLightbox}
               >
                 <img
                   src={currentShot.file}
@@ -188,6 +255,13 @@ function ProjectCard({ project }) {
                     <code className="text-violet-700 text-xs">public{currentShot.file}</code>
                   </p>
                 </div>
+
+                {project.screenshots.length > 1 && (
+                  <>
+                    <GalleryArrow direction="previous" onClick={previousShot} />
+                    <GalleryArrow direction="next" onClick={nextShot} />
+                  </>
+                )}
 
                 {/* Hover overlay — zoom icon in center */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
@@ -247,28 +321,32 @@ function ProjectCard({ project }) {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-3 pt-2 border-t border-violet-100">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-sm py-2.5 flex items-center gap-2"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                  Live Demo
-                </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline text-sm py-2.5 flex items-center gap-2"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                  GitHub
-                </a>
+                {project.liveUrl !== '#' && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary text-sm py-2.5 flex items-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Live Demo
+                  </a>
+                )}
+                {project.githubUrl !== '#' && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline text-sm py-2.5 flex items-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>
