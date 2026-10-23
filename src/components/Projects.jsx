@@ -98,8 +98,8 @@ const projects = [
     githubUrl: 'https://github.com/4ronJohn/maillaunch',
     screenshots: [
       { label: 'MailLaunch Commands', file: '/projects/maillaunch/00.png' },
-      { label: 'MailLaunch Send', file: '/projects/maillaunch/11.png' },
-      { label: 'MailLaunch Logs', file: '/projects/maillaunch/22.png' },
+      { label: 'MailLaunch Send', file: '/projects/maillaunch/11.jpg' },
+      { label: 'MailLaunch Logs', file: '/projects/maillaunch/22.jpg' },
       { label: 'MailLaunch Status', file: '/projects/maillaunch/33.png' },
     ],
   },
