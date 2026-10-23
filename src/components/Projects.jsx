@@ -80,6 +80,29 @@ const projects = [
       { label: 'Google Drive Node', file: '/projects/reciepts-tracker/4.png' },
     ],
   },
+  {
+    id: 'maullaunch',
+    title: 'MailLaunch – Email Campaign CLI',
+    subtitle: 'A Python-based CLI tool for personalized email campaigns with automated sending and campaign tracking.',
+    description:
+      'MailLaunch is a command-line email automation tool that sends personalized emails using CSV recipient data and customizable templates. It integrates with Gmail API and Microsoft Graph, with campaign tracking and persistence to help manage email delivery and resume interrupted campaigns.',
+    features: [
+      'Personalized emails using CSV data and template variables such as {{first_name}} and {{company}}.',
+      'Gmail API and Microsoft Graph integration for sending emails.',
+      'Configurable sending delays and daily sending limits.',
+      'Campaign status tracking for sent, pending, and failed emails.',
+      'SQLite persistence, logging, and campaign-specific resume functionality.',
+    ],
+    stack: ['Python', 'Gmail API', 'Microsoft Graph API', 'MSAL', 'SQLite', 'OAuth 2.0', 'pytest'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/4ronJohn/maillaunch',
+    screenshots: [
+      { label: 'MailLaunch Commands', file: '/projects/maillaunch/0.png' },
+      { label: 'MailLaunch Send', file: '/projects/maillaunch/1.png' },
+      { label: 'MailLaunch Logs', file: '/projects/maillaunch/2.png' },
+      { label: 'MailLaunch Status', file: '/projects/maillaunch/3.png' },
+    ],
+  },
 ]
 
 function GalleryArrow({ direction, onClick, fullscreen = false }) {
